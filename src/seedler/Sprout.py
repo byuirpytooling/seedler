@@ -5,6 +5,8 @@ class Sprout:
         self.__buds = dict()
         self.__rnd: Random = Random(seed)
 
+        self.seed = seed
+
     def add_bud(self, bud: str, count: int = 1) -> None:
         """
         Adds buds to the sprout.
@@ -48,3 +50,6 @@ class Sprout:
             return 0
 
         return self.__buds[name]
+
+    def results(self) -> dict:
+        return self.__buds

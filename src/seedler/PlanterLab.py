@@ -1,48 +1,48 @@
 from abc import ABC, abstractmethod
-from Sprout import Sprout
-from Flamethrower import Flamethrower
+from .Sprout import Sprout
+from .Fire import Fire
+from .Planter import Planter
 
 class PlanterLab(ABC):
     def __init__(self):
-        self.sprout : Sprout | None = None
+        pass
 
     @abstractmethod
-    def __plant(self) -> None:
+    def _plant(self, sprout: Sprout) -> None:
         """
         Defines a seeds test. Assign conditions inside with ``self.sprout.add_bud("COND_NAME")``
+        Args:
+            sprout (Sprout): Sprout object
         Returns: None
 
         """
         # to be overridden
         pass
 
-    def find_seeds(self, flamethrower: Flamethrower, minimum: int = 0, maximum: int = 100_000) -> None:   # TODO return a Planter
+    def find_seeds(self, fire: Fire = None, minimum: int = 0, maximum: int = 100_000) -> Planter:
         """
         Finds all matching seeds within range that pass the purging conditions
         Args:
-            flamethrower: Flamethrower object for seed purging
+            fire: Fire object for seed purging
             minimum: Starting seeds testing number
             maximum: Ending seeds testing number
-        Returns: None
+        Returns: Planter
 
         """
-        found_seeds = []
+        planter = Planter()
 
         for i in range(min(minimum, maximum), max(maximum, minimum), 1):
             # get sprout
-            self.sprout = Sprout(i)
+            sprout = Sprout(i)
             # run test
-            self.__plant()
+            self._plant(sprout)
 
             # purge on conditions
-            if flamethrower.purge(self.sprout):
-                continue
+            if fire is not None:
+                if fire.purge(sprout):
+                    continue
 
-            found_seeds.append(i)
-
-        # reset all temp vars
-        flamethrower.reset()
-        self.sprout = None
+            planter.add_seed(sprout)
 
         # return found seeds
-        print("FOUND SEEDS: ", ','.join(found_seeds))
+        return planter
