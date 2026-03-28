@@ -1,0 +1,13 @@
+[package]
+name = "seedler_rust"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "seedler_rust"
+crate-type = ["cdylib"]
+path = "src/lib.rs"
+
+[dependencies]
+pyo3 = { version = "0.23", features = ["extension-module", "abi3-py312"] }
+rand = "0.8"

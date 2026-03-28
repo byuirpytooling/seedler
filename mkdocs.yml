@@ -1,5 +1,5 @@
-site_name: Example MkDocs Material Documentation for pypackage_template
-site_url: https://byuirpytooling.github.io/pypackage_template
+site_name: Seedler Documentation
+site_url: https://byuirpytooling.github.io/seedler
 theme:
   name: material
   icon:
@@ -49,16 +49,15 @@ markdown_extensions:
   - pymdownx.details
 
 plugins:
-  - search
-  - autorefs
   - mkdocstrings:
-      default_handler: python
       handlers:
         python:
-          paths: [src]
           options:
+            allow_inspection: true 
+            show_root_heading: true
             show_source: false
-
+            show_if_no_docstring: true
+          paths: [src]
 extra:
   social:
     - icon: fontawesome/brands/youtube
