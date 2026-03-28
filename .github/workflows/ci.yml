@@ -25,14 +25,10 @@ jobs:
           python-version: '3.12'
           enable-cache: true
 
-      - name: Build and Install Seedler
-        run: |
-          # This compiles the Rust and installs the package into the environment
-          uv pip install . --system
-
-      - name: Install Doc Tools
-        run: |
-          uv pip install mkdocs-material mkdocs-autorefs mkdocstrings[python] mkdocstrings-python mkdocs-jupyter --system
-
       - name: Deploy to GitHub Pages
-        run: uv run mkdocs gh-deploy --force
+        run: |
+          # 1. Install your package and doc dependencies into a managed venv
+          uv pip install . mkdocs-material mkdocs-autorefs mkdocstrings[python] mkdocstrings-python mkdocs-jupyter
+          
+          # 2. Run the deploy command through 'uv run' so it uses that venv
+          uv run mkdocs gh-deploy --force
