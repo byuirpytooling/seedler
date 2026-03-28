@@ -8,7 +8,7 @@ version = "0.0.1"
 description = "A package to test for RNG seeds that satisfy conditions"
 authors = [{name="Wolfer", email="DALLIN.WOLFER.OFFICIAL@GMAIL.COM"}]
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 dependencies = [
     "pandas",
     "matplotlib"

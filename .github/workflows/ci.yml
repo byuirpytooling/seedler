@@ -19,30 +19,20 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
         with:
-          python-version: '3.12' # Stable version for Rust/Python compatibility
+          python-version: '3.12'
+          enable-cache: true
 
-      - name: Install uv and Build Rust Extension
+      - name: Build and Install Seedler
         run: |
-          curl -LsSf https://astral.sh/uv/install.sh | sh
-          # This builds your Rust code and installs seedler into the runner's environment
-          uv pip install . --system 
+          # This compiles the Rust and installs the package into the environment
+          uv pip install . --system
 
-      - name: Cache MkDocs
-        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-      - uses: actions/cache@v4
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
-
-      - name: Install Documentation Tools
+      - name: Install Doc Tools
         run: |
-          # Added mkdocs-jupyter in case you use notebooks
-          pip install mkdocs-material mkdocs-autorefs mkdocstrings[python] mkdocstrings-python mkdocs-jupyter
+          uv pip install mkdocs-material mkdocs-autorefs mkdocstrings[python] mkdocstrings-python mkdocs-jupyter --system
 
       - name: Deploy to GitHub Pages
-        run: mkdocs gh-deploy --force
+        run: uv run mkdocs gh-deploy --force
