@@ -1,69 +1,45 @@
 # Contributing
 
-Contributions are welcome, and they are greatly appreciated! Every little bit
-helps, and credit will always be given.
+Contributions are welcome! Please ensure that any Rust changes include updated tests and satisfy `cargo fmt`.
 
-## Types of Contributions
+- Fork the Project
+- Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+- Commit your Changes (`git commit -m 'Add AmazingFeature'`)
+- Push to the Branch (`git push origin feature/AmazingFeature`)
+- Open a Pull Request
 
-### Report Bugs
+## Get Started
 
-If you are reporting a bug, please include:
+Ready to contribute? Here's how to set up `seedler_repo` for local development.
 
-* Your operating system name and version.
-* Any details about your local setup that might be helpful in troubleshooting.
-* Detailed steps to reproduce the bug.
-
-### Fix Bugs
-
-Look through the GitHub issues for bugs. Anything tagged with "bug" and "help
-wanted" is open to whoever wants to implement it.
-
-### Implement Features
-
-Look through the GitHub issues for features. Anything tagged with "enhancement"
-and "help wanted" is open to whoever wants to implement it.
-
-### Write Documentation
-
-You can never have enough documentation! Please feel free to contribute to any
-part of the documentation, such as the official docs, docstrings, or even
-on the web in blog posts, articles, and such.
-
-### Submit Feedback
-
-If you are proposing a feature:
-
-* Explain in detail how it would work.
-* Keep the scope as narrow as possible, to make it easier to implement.
-* Remember that this is a volunteer-driven project, and that contributions
-  are welcome :)
-
-## Get Started!
-
-Ready to contribute? Here's how to set up `template_package` for local development.
-
-1. Download a copy of `template_package` locally.
-
-2. Create and activate a conda environment for `template_package`:
+1. Clone the `seedler_repo` locally.
 
     ```console
-    $ conda create -n template_package python=3.12
-    $ conda activate template_package
+    git clone git+https://github.com/byuirpytooling/seedler.git@main
+    cd seedler-repo
     ```
 
-3. Install `template_package` using `poetry`:
+2. Create and activate a uv venv for `seedler_repo`:
 
     ```console
-    $ poetry install
+    uv venv --python 3.14
+    source .venv/bin/activate
     ```
 
-4. Use `git` (or similar) to create a branch for local development and make your changes:
+3. Install `seedler_repo` python and rust packages locally as editable:
 
     ```console
-    $ git checkout -b name-of-your-bugfix-or-feature
+    uv pip install -e .
+    uv run maturin develop
     ```
 
-5. When you're done making changes, check that your changes conform to any code formatting requirements and pass any tests.
+4. Use `git` to create a branch for local development and make your changes
+
+5. When you're done making changes, check that your changes conform to any code formatting requirements and pass any tests:
+
+    ```console
+    cargo fmt
+    ```
 
 6. Commit your changes and open a pull request.
 
@@ -77,5 +53,5 @@ Before you submit a pull request, check that it meets these guidelines:
 
 ## Code of Conduct
 
-Please note that the `template_package` project is released with a
-Code of Conduct. By contributing to this project you agree to abide by its terms.
+Please note that the `seedler_repo` project is released with a
+Code of Conduct [CONDUCT.md](CONDUCT.md). By contributing to this project you agree to abide by its terms.

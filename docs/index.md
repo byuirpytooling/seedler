@@ -104,7 +104,7 @@ Seedler integrates seamlessly with Pandas for post-simulation analysis. The get_
 
 ```Python
 import pandas as pd
-from seedler import PlanterLab
+from seedler import Planter
 
 lab = MyCustomPlanter()
 results = lab.find_seeds(minimum=0, maximum=1000)
