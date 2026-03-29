@@ -1,6 +1,4 @@
-# Getting Started
-
-## Seedler
+# Seedler
 
 Seedler is a high-performance Python package powered by Rust, designed for large-scale Monte Carlo simulations and RNG seed discovery. By leveraging Rust's speed and safety alongside Python's flexibility, Seedler allows you to simulate millions of scenarios, filter results with complex logic, and perfectly recreate specific outcomes using deterministic seeding.
 
@@ -13,32 +11,29 @@ Seedler is a high-performance Python package powered by Rust, designed for large
 
 ## Installation
 
-=== "Pip"
+### Pip
+```bash
+pip install git+https://github.com/byuirpytooling/seedler.git@main
+```
 
-    ```bash
-    pip install git+https://github.com/byuirpytooling/seedler.git@main
-    ```
+### UV
+```bash
+uv pip install git+https://github.com/byuirpytooling/seedler.git@main
+```
 
-=== "UV"
+### Development
+From Source. Seedler requires the Rust toolchain and maturin to build the native extension.
 
-    ```bash
-    uv pip install git+https://github.com/byuirpytooling/seedler.git@main
-    ```
+```bash
+git clone git+https://github.com/byuirpytooling/seedler.git@main
+cd seedler-repo
 
-=== "Development"
-    
-    From Source. Seedler requires the Rust toolchain and maturin to build the native extension.
+uv venv --python 3.14
+source .venv/bin/activate
 
-    ```bash
-    git clone git+https://github.com/byuirpytooling/seedler.git@main
-    cd seedler-repo
-
-    uv venv --python 3.14
-    source .venv/bin/activate
-
-    uv pip install -e .
-    uv run maturin develop
-    ```
+uv pip install -e .
+uv run maturin develop
+```
 
 ## Quick Start
 Seedler uses *Garden* and *Planting* metaphors for simulations:
@@ -88,7 +83,7 @@ print(f"Found {len(winning_seeds)} winning seeds.")
 
 One of Seedler's strengths is the ability to recreate a complex simulation state instantly using only its seed.
 
-```Python
+```python
 # Assuming you have a seed from a previous run
 seed = [EXAMPLE SEED]
 
@@ -102,7 +97,7 @@ print(f"Results for seed {seed}: {sprout.to_dict()}")
 
 Seedler integrates seamlessly with Pandas for post-simulation analysis. The get_data() method returns a structured format that can be converted into a DataFrame instantly.
 
-```Python
+```python
 import pandas as pd
 from seedler import Planter
 

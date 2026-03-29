@@ -83,7 +83,7 @@ print(f"Found {len(winning_seeds)} winning seeds.")
 
 One of Seedler's strengths is the ability to recreate a complex simulation state instantly using only its seed.
 
-```Python
+```python
 # Assuming you have a seed from a previous run
 seed = [EXAMPLE SEED]
 
@@ -97,7 +97,7 @@ print(f"Results for seed {seed}: {sprout.to_dict()}")
 
 Seedler integrates seamlessly with Pandas for post-simulation analysis. The get_data() method returns a structured format that can be converted into a DataFrame instantly.
 
-```Python
+```python
 import pandas as pd
 from seedler import Planter
 
