@@ -1,7 +1,9 @@
 # API
 
 ## High-Level Interface (Python)
-::: seedler.fire
-::: seedler.nursery
-::: seedler.planter
-::: seedler.sprout
+::: seedler.Fire
+::: seedler.Nursery
+::: seedler.Planter
+::: seedler.Sprout
+
+## Rust Interface

@@ -1,5 +1,5 @@
 site_name: Seedler Documentation
-site_url: https://byuirpytooling.github.io/seedler
+site_url: https://byuirpytooling.github.io/seedler/
 theme:
   name: material
   icon:
@@ -55,6 +55,9 @@ plugins:
           options:
             allow_inspection: true 
             show_root_heading: true
+            show_labels: true
+            show_root_full_path: false
+            group_by_category: true
             show_source: false
             show_if_no_docstring: true
           paths: [src]
