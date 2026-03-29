@@ -1,9 +1,3 @@
-# RNG Distribution Proof
-
-To build confidence in the distribution of the random-number generation within seedler, we can plot 10-million random samples between [0, 100), and calculate thier mathematical ditribution to find out if seedler is truly normally distributed, or skewed.
-
-## Python
-```python
 # Imports
 from seedler import Planter, Sprout, Fire, Nursery
 import numpy as np
@@ -54,15 +48,3 @@ print("-" * 40)
 print(f"Expected Mean:      {exp_mean:>10.3f} | Actual Weighted Mean: {actual_mean:>10.3f}")
 print(f"Expected STD:       {exp_std:>10.3f} | Actual Weighted STD:  {actual_std:>10.3f}")
 print(f"Expected Error:     {exp_mean_error:>10.3f} | Actual Mean Error:    {actual_mean_error:>10.3f}")
-```
-
-## Results
-```text
-Total Samples Run:  10,000,000
-----------------------------------------
-Expected Mean:          49.500 | Actual Weighted Mean:     49.490
-Expected STD:           28.866 | Actual Weighted STD:      28.864
-Expected Error:          0.009 | Actual Mean Error:         0.010
-```
-
-Our simulation results are very close to the mathematically perfect normal distribution we expect, and the error is within 2 standard deviations of the expected results, meaning our RNG is very normal, and reliable for simulation purposes.
