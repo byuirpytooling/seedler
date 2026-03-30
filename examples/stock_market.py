@@ -16,7 +16,7 @@ class MarketPlanter(Planter):
         lowest_price = self.start
         
         for _ in range(self.days):
-            move = sprout.growth(-100, 100) / 1000.0 
+            move = sprout.growth(-100, 100) / 100.0 
             current_price *= (1 + (move * self.vol))
             
             if current_price < lowest_price:
@@ -29,7 +29,7 @@ class MarketPlanter(Planter):
         current_price = self.start
         
         for day in range(self.days):
-            move = sprout.growth(-100, 100) / 1000.0 
+            move = sprout.growth(-100, 100) / 100.0 
             current_price *= (1 + (move * self.vol))
         
             change = (current_price / self.start) * 100
@@ -44,7 +44,7 @@ class FindBlackSwan(Fire):
 
 sims = 50_000
 
-lab = MarketPlanter().setup(initial_price=100, volatility=0.15, days=356)
+lab = MarketPlanter().setup(initial_price=100, volatility=0.015, days=356)
 crashes = lab.find_seeds(fire=FindBlackSwan(40), maximum=sims)
 
 crash_chance = len(crashes) / sims * 100

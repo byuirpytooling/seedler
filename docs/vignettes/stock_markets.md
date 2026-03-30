@@ -7,10 +7,10 @@
 
 ## The Problem
 
-How likely is it for a high-volatility speculative stock to crash in the market each year?
+How likely is it for a medium-low volatile stock to crash in the market each year?
 
 Specifications:
-- +/-15% market price per day
+- +/-1.5% market price per day
 - Initial stock price of $100
 
 ## Solving the Problem
@@ -40,7 +40,7 @@ class MarketPlanter(Planter):
         lowest_price = self.start
         
         for _ in range(self.days):
-            move = sprout.growth(-100, 100) / 1000.0 
+            move = sprout.growth(-100, 100) / 100.0 
             current_price *= (1 + (move * self.vol))
             
             if current_price < lowest_price:
@@ -53,7 +53,7 @@ class MarketPlanter(Planter):
         current_price = self.start
         
         for day in range(self.days):
-            move = sprout.growth(-100, 100) / 1000.0 
+            move = sprout.growth(-100, 100) / 100.0 
             current_price *= (1 + (move * self.vol))
         
             change = (current_price / self.start) * 100
@@ -82,7 +82,7 @@ Each crash is recorded after the simulation, we can find the chance of crashing 
 ```python
 sims = 50_000
 
-lab = MarketPlanter().setup(initial_price=100, volatility=0.15, days=356)
+lab = MarketPlanter().setup(initial_price=100, volatility=0.015, days=356)
 crashes = lab.find_seeds(fire=FindBlackSwan(40), maximum=sims)
 
 crash_chance = len(crashes) / sims * 100
@@ -168,4 +168,4 @@ As we can see from the graph, Every crash is a slow-burn throughout the year, on
 
 ### Answering the Problem
 
-According to our simulation with the given parameters, a 15% daily volatile stock has a ~0.21% chance of crashing in a given year.
+According to our simulation with the given parameters, a 1.5% daily volatile stock has a ~0.21% chance of crashing in a given year.
