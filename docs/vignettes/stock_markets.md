@@ -10,6 +10,7 @@
 How likely is it for a medium-low volatile stock to crash in the market each year?
 
 Specifications:
+
 - +/-1.5% market price per day
 - Initial stock price of $100
 
