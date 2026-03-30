@@ -1,6 +1,7 @@
 # 3-Card Monte Simulation
 
 **Key Learning:**
+
 - Using seedler `Planter`, `Sprout`, and `Fire` classes
 - Using flags for buds
 - Monte-Carlo probability simulation

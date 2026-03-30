@@ -1,6 +1,7 @@
 # Monty-Hall Problem
 
 **Key Learning:**
+
 - Using enum flags
 - Parallel simulation (same problem, simulate multiple solutions)
 - Performance via. pruning (using Fire.purge)

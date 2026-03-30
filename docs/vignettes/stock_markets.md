@@ -1,6 +1,7 @@
 # Stock Market Volatility
 
 **Key Learning:**
+
 - Broad and granular simulation
 - Extracting and graphing results
 
