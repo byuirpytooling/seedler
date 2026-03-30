@@ -1,5 +1,11 @@
 # 3-Card Monte Simulation
 
+**Key Learning:**
+- Using seedler `Planter`, `Sprout`, and `Fire` classes
+- Using flags for buds
+- Monte-Carlo probability simulation
+- Re-simulating seeds
+
 ## Simulation Baseline
 
 The classic 3-card monte game is where the player is presented with 3 face-down cards - two losing, one winning - and must select on card. The standard odds, without cheating is easy to know since 1/3 of cards are winning, which means the player wins 33.33% of the time. However, we can use `seedler` to run a monte-carlo simulation of the situation to get a similar answer.
