@@ -20,6 +20,43 @@ pip install git+https://github.com/byuirpytooling/seedler.git@main
 ```bash
 uv pip install git+https://github.com/byuirpytooling/seedler.git@main
 ```
+## System Requirements
+
+Seedler includes a Rust extension that must be compiled during installation.
+You must install Rust before installing this package.
+
+### Windows Users
+1. Install Rust
+
+Download and install Rust:
+
+- [Rustup](https://rustup.rs/)
+
+2. Install Visual C++ Build Tools
+
+Download and run:
+
+- [Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+
+During installation:
+- Select "Desktop development with C++"
+- Click Install
+
+### macOS Users
+1. Install Rust
+
+Install Rust:
+
+- [Rustup](https://rustup.rs/)
+
+### Troubleshooting
+
+If installation fails with errors like:
+
+can't find Rust compiler
+Microsoft Visual C++ 14.0 is required
+
+It usually means one of the required tools is not installed correctly.
 
 ### Development
 From Source. Seedler requires the Rust toolchain and maturin to build the native extension.
@@ -147,6 +184,6 @@ Distributed under the MIT License. See LICENSE for more information.
 Authors: 
 
 - **Dallin Wolfer** - wol23003@byui.edu
-- **Alyssa Cox** -
+- **Alyssa Cox** - cox24018@byui.edu
 
 Project Link: https://github.com/byuirpytooling/seedler

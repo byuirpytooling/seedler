@@ -6,7 +6,9 @@ build-backend = "maturin"
 name = "seedler"
 version = "0.0.1"
 description = "A package to test for RNG seeds that satisfy conditions"
-authors = [{name="Wolfer", email="DALLIN.WOLFER.OFFICIAL@GMAIL.COM"}]
+authors = [{name="Wolfer", email="DALLIN.WOLFER.OFFICIAL@GMAIL.COM"},
+            { name = "Alyssa Cox", email = "cox24018@byui.edu" }
+]
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
